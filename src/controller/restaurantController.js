@@ -1,6 +1,6 @@
 const restaurantSchema = require('../module/restaurant')
 const book = require('../module/book')
-const { deleteMany } = require('../module/book')
+
 
 const createRestaurant = async(data,date)=>{
   const restaurant = new restaurantSchema(data)
@@ -21,7 +21,7 @@ const removeRestaurnt = async (id)=>{
       return err.message
     }
   })
-  const deletebooking = await book.deleteMany({id:id})
+  const deletebooking = await book.deleteMany({restaurant:id})
   
 }
 const listOfRestaurants = async ()=>{

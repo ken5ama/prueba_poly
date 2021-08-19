@@ -37,7 +37,11 @@ router.delete('/restaurant/:_id', async(req,res)=>{
 router.get('/restaurants',async(req,res)=>{
   try{
     const data=await restaurant.listOfRestaurants()
+    if(req.query.city){
+      data.filter(city=>req.query.city)
+    }else{
     res.json(data)
+    }
   }catch(err){
     res.status(500).send(err.message)
   }
