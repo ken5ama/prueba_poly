@@ -16,8 +16,14 @@ const cont = async(date)=>{
   const count =await book.find({date:date})
   return count.length
 }
+const countTables = async(date,id)=>{
+  const tables = await book.find({date:date,restaurant:id})
+  return tables.length
+}
+
 module.exports ={
   createBook,
   listOfBook,
-  cont
+  cont,
+  countTables
 }
