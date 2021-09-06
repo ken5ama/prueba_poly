@@ -2,11 +2,11 @@ const book =require('../module/book')
 
 
 
-const createBook = async(data)=>{
-
-  const datos = new book(data)
+const createBook = async(data, numTable)=>{
+  let datos = new book(data)
   await datos.save()
   return datos
+  
 }
 const listOfBook = async()=>{
  const data = await book.find()
